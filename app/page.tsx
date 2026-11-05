@@ -1,69 +1,36 @@
-import Image from "next/image";
+import Link from "next/link";
 import styles from "./page.module.css";
 
-export default function Home() {
+const Home = () => {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className={styles.inicio}>
+      <section className={styles.portada} aria-labelledby="titulo-inicio">
+        <div>
+          <p className={styles.etiqueta}>Desarrollo y tecnología</p>
+          <h1 id="titulo-inicio">Tu próximo paso empieza con algo nuevo.</h1>
+          <p className={styles.descripcion}>
+            Explorá cursos de programación, bases de datos y diseño web.
+            Encontrá un tema que te interese y conocé qué podés aprender.
           </p>
+          <Link href="/cursos" className={styles.boton}>
+            Explorar cursos <span aria-hidden="true">→</span>
+          </Link>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        <aside className={styles.guia} aria-labelledby="titulo-guia">
+          <p className={styles.etiqueta}>Una idea para empezar</p>
+          <h2 id="titulo-guia">Seguí tu curiosidad.</h2>
+          <ol className={styles.pasos}>
+            <li>Explorá los temas del catálogo.</li>
+            <li>Elegí el curso que te llame la atención.</li>
+            <li>Revisá su descripción y precio en el detalle.</li>
+          </ol>
+        </aside>
+      </section>
+      <p className={styles.nota}>
+        Catálogo de ejemplo para la práctica de Next.js de Desarrollo de Software IV.
+      </p>
+    </main>
   );
-}
+};
+
+export default Home;

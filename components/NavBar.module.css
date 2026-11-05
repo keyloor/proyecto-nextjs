@@ -1,0 +1,47 @@
+.encabezado {
+  border-bottom: 1px solid var(--color-borde);
+  background: var(--color-superficie);
+}
+
+.navegacion {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 24px;
+}
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+}
+
+.marca span { color: var(--color-primario); }
+
+.enlaces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+}
+
+.enlaces a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.enlaces a:hover {
+  background: var(--color-fondo);
+  color: var(--color-primario);
+}
