@@ -1,0 +1,38 @@
+.contenedor {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 72px 16px;
+  text-align: center;
+}
+
+.codigo {
+  color: var(--color-primario);
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.titulo {
+  margin-top: 16px;
+  font-size: 2rem;
+}
+
+.mensaje {
+  margin-top: 12px;
+  color: var(--color-secundario);
+}
+
+.boton {
+  display: inline-block;
+  margin-top: 32px;
+  padding: 12px 24px;
+  border-radius: 6px;
+  background: var(--color-primario);
+  color: var(--color-superficie);
+  font-weight: 700;
+}
+
+.boton:hover {
+  background: var(--color-primario-hover);
+}
