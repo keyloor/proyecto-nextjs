@@ -7,28 +7,29 @@ Son 8 archivos cortos. Es una versión más simple que el proyecto del repositor
 
 ## Antes de clase
 
-1. Tener un editor, por ejemplo [Visual Studio Code](https://code.visualstudio.com), y Node.js 20.9 o superior.
-   Se revisa con `node --version`. Si falta, instalar la versión LTS desde <https://nodejs.org>.
-2. En la carpeta donde se quiera guardar, crear el proyecto. Tarda unos minutos:
+Tener un editor, por ejemplo [Visual Studio Code](https://code.visualstudio.com), y Node.js 20.9 o superior.
+Se revisa con `node --version`. Si falta, instalar la versión LTS desde <https://nodejs.org>.
 
-   ```bash
-   npx create-next-app@16.4.5 proyecto-nextjs --ts --eslint --app --no-tailwind --no-react-compiler --no-cache-components --no-src-dir --no-agents-md --no-agent-feedback --import-alias "@/*" --use-npm
-   ```
+## Parte 1. Proyecto y menú
 
-3. Entrar y encenderlo. En <http://localhost:3000> tiene que verse la página de ejemplo de Next.js:
+**Paso 1.** Abrir una terminal en la carpeta donde se quiera guardar y crear el proyecto. Tarda unos minutos y ocupa internet:
 
-   ```bash
-   cd proyecto-nextjs
-   npm run dev
-   ```
+```bash
+npx create-next-app@16.4.5 proyecto-nextjs --ts --eslint --app --no-tailwind --no-react-compiler --no-cache-components --no-src-dir --no-agents-md --no-agent-feedback --import-alias "@/*" --use-npm
+```
 
 En Windows, si PowerShell dice que `npm.ps1` no está firmado digitalmente, escribir `npm.cmd` y `npx.cmd`.
 Si el comando hace preguntas, responder Yes a TypeScript y App Router, ESLint como linter y No a todo lo demás.
 Los avisos de paquetes al instalar son normales. No correr `npm audit fix --force`.
 
-## Parte 1. Menú compartido
+**Paso 2.** Entrar y encenderlo. En <http://localhost:3000> tiene que verse la página de ejemplo de Next.js:
 
-**Paso 1.** Abrir `app/globals.css`, borrar todo y pegar los estilos de toda la práctica.
+```bash
+cd proyecto-nextjs
+npm run dev
+```
+
+**Paso 3.** Abrir `app/globals.css`, borrar todo y pegar los estilos de toda la práctica.
 
 **Archivo:** `app/globals.css`
 
@@ -47,7 +48,7 @@ h1 { margin-bottom: 16px; }
   border: 1px solid #dce1e9; border-radius: 8px; }
 ```
 
-**Paso 2.** Crear la carpeta `components` en la raíz y, dentro, el menú. `Link` cambia de página sin recargar el sitio.
+**Paso 4.** Crear la carpeta `components` en la raíz y, dentro, el menú. `Link` cambia de página sin recargar el sitio.
 
 **Archivo:** `components/NavBar.tsx`
 
@@ -66,7 +67,7 @@ const NavBar = () => {
 export default NavBar;
 ```
 
-**Paso 3.** Abrir `app/layout.tsx`, borrar todo y pegar esto. El layout envuelve todas las páginas, así que el menú se
+**Paso 5.** Abrir `app/layout.tsx`, borrar todo y pegar esto. El layout envuelve todas las páginas, así que el menú se
 escribe una sola vez. `children` es el contenido de cada página.
 
 **Archivo:** `app/layout.tsx`
@@ -90,7 +91,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
 export default RootLayout;
 ```
 
-**Paso 4.** Abrir `app/page.tsx`, borrar todo y pegar esto. Es la página de la ruta `/`.
+**Paso 6.** Abrir `app/page.tsx`, borrar todo y pegar esto. Es la página de la ruta `/`.
 
 **Archivo:** `app/page.tsx`
 
@@ -111,7 +112,7 @@ export default Home;
 
 ## Parte 2. Listado
 
-**Paso 5.** Crear la carpeta `data` y este archivo. La interfaz dice qué datos tiene un curso.
+**Paso 7.** Crear la carpeta `data` y este archivo. La interfaz dice qué datos tiene un curso.
 
 **Archivo:** `data/cursos.ts`
 
@@ -133,7 +134,7 @@ export const cursos: Curso[] = [
 ];
 ```
 
-**Paso 6.** En `components`, crear la tarjeta. Es un componente que recibe un curso por props y se reutiliza.
+**Paso 8.** En `components`, crear la tarjeta. Es un componente que recibe un curso por props y se reutiliza.
 
 **Archivo:** `components/CursoCard.tsx`
 
@@ -154,7 +155,7 @@ const CursoCard = ({ curso }: { curso: Curso }) => {
 export default CursoCard;
 ```
 
-**Paso 7.** Dentro de `app`, crear la carpeta `cursos` y este archivo. Por estar ahí, Next.js crea la ruta `/cursos`.
+**Paso 9.** Dentro de `app`, crear la carpeta `cursos` y este archivo. Por estar ahí, Next.js crea la ruta `/cursos`.
 `map` devuelve una tarjeta por cada curso.
 
 **Archivo:** `app/cursos/page.tsx`
@@ -183,7 +184,7 @@ export default CursosPage;
 
 ## Parte 3. Detalle con ruta dinámica
 
-**Paso 8.** Dentro de `app/cursos`, crear una carpeta llamada `[id]`, con los corchetes, y dentro este archivo. Esa carpeta
+**Paso 10.** Dentro de `app/cursos`, crear una carpeta llamada `[id]`, con los corchetes, y dentro este archivo. Esa carpeta
 atiende `/cursos/1`, `/cursos/2` y cualquier otro valor. `params` es una promesa, por eso se usa `await`. El valor llega
 como texto, por eso se compara con `Number(id)`.
 
